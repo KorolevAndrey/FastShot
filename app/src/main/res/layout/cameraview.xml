@@ -9,8 +9,8 @@
 
     <SurfaceView
         android:id="@+id/surface_camera"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
+        android:layout_width="1dp"
+        android:layout_height="1dp" >
 
     </SurfaceView>
 

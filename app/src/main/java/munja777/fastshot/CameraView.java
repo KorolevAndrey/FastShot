@@ -6,8 +6,6 @@ import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
-import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -22,7 +20,6 @@ public class CameraView extends Activity implements SurfaceHolder.Callback,
         View.OnClickListener {
 
 
-    private static final String TAG = "CameraTest";
     Camera mCamera;
     boolean mPreviewRunning = false;
     String time = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -33,7 +30,6 @@ public class CameraView extends Activity implements SurfaceHolder.Callback,
 
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        Log.e(TAG, "onCreate");
 
         setContentView(R.layout.cameraview);
         SurfaceView mSurfaceView = (SurfaceView) findViewById(R.id.surface_camera);
@@ -100,7 +96,6 @@ public class CameraView extends Activity implements SurfaceHolder.Callback,
                 this.mCamera = Camera.open(0);
                 try {
                     this.mCamera.setPreviewDisplay(holder);
-                    Log.d("HiddenEye Plus", "Camera open RE");
                     return;
                 } catch (IOException localIOException1) {
                     stopCamera();
@@ -119,7 +114,6 @@ public class CameraView extends Activity implements SurfaceHolder.Callback,
     private void stopCamera() {
         if (this.mCamera != null) this.mPreviewRunning = false;
     }
-
 
 
     Camera.PictureCallback mPictureCallback = new Camera.PictureCallback() {
